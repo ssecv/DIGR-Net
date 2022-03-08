@@ -47,6 +47,7 @@ respectively.
 Finally, you should set batch from 10 to 6,
 then you can run digr_train.py to train
 
+datasets can be downloaded from : [link](https://pan.baidu.com/s/1KkL1b5QQn6CmzLpZ9SGjoA?pwd=slpy) (slpy)
 
 ## test
 open the fold "DIGR-Net" to find the file 'digr_test.py' （if you want to train with 2985 samples） of you can change the default test_path from "./dataset_dut/RGBD_for_test/" to "./dataset/RGBD_for_test/
@@ -56,7 +57,7 @@ trained model：
 result maps: 
 
 ## Evaluation
-find the evaluation method(matlab code) from http://dpfan.net/d3netbenchmark/
+find the evaluation method(matlab code) from [evaluation code](http://dpfan.net/d3netbenchmark/)
 
 
 
