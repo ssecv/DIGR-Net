@@ -52,11 +52,11 @@ then you can run digr_train.py to train
 open the fold "DIGR-Net" to find the file 'digr_test.py' （if you want to train with 2985 samples） of you can change the default test_path from "./dataset_dut/RGBD_for_test/" to "./dataset/RGBD_for_test/
 
 ## trained model and results
+trained model：
+result maps: 
 
+## Evaluation
+find the evaluation method(matlab code) from http://dpfan.net/d3netbenchmark/
 
-## Evaluate the result maps
-find the matlab code from http://dpfan.net/d3netbenchmark/
-
-## citation
 
 
