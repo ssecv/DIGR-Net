@@ -31,7 +31,20 @@ With datstet for trainig preapread, open the fold "DIGR-Net" to find the file 'd
 
 ###trianing with 2185 samples(NJU2K+NLPR+DUT-RGBD)
 open ./DIGR-Net/options.py and change the default fold from "./dataset_dut/RGBD_for_train/RGB/" to "./dataset/RGBD_for_train/RGB/",
-also you should set batch from 10 to 6,
+
+and you should open digr_train.py to set 
+
+train_score=decode_csv('./score_folder/train_dut.csv')
+val_score=decode_csv('./score_folder/val_dut.csv')
+
+to 
+
+train_score=decode_csv('./score_folder/train.csv')
+val_score=decode_csv('./score_folder/val.csv')
+
+respectively.
+
+Finally, you should set batch from 10 to 6,
 then you can run digr_train.py to train
 
 
