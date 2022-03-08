@@ -6,39 +6,22 @@ create training dataset fold: open DIGR-Net Fold and create a new fold named by 
 - dataset_dut 
 
 -- RGBD_for_test #test dataset
-
 ---NJU2K
-
 ----RGB
-
 ----depth
-
 ----GT
-
 ---NLPR
-
 ...
-
 -- RGBD_for train  #training dataset
-
 ---RGB
-
 --- depth
-
 --- GT
-
 -- test_in_train  #validation dataset
-
 ---NJU2K
-
 ----RGB
-
 ----depth
-
 ----GT
-
 ---NLPR
-
 ...
 
 
