@@ -20,11 +20,6 @@ def cv_random_flip(img, label, depth):
         img = img.transpose(Image.FLIP_LEFT_RIGHT)
         label = label.transpose(Image.FLIP_LEFT_RIGHT)
         depth = depth.transpose(Image.FLIP_LEFT_RIGHT)
-    # top bottom flip
-    # if flip_flag2==1:
-    #     img = img.transpose(Image.FLIP_TOP_BOTTOM)
-    #     label = label.transpose(Image.FLIP_TOP_BOTTOM)
-    #     depth = depth.transpose(Image.FLIP_TOP_BOTTOM)
     return img, label, depth
 
 
