@@ -6,7 +6,7 @@ import sys
 import numpy as np
 from datetime import datetime
 from torchvision.utils import make_grid
-from digr_res50 import IRFF
+from digr_res50 import DIGR
 from data import get_loader, test_dataset
 from utils import clip_gradient, adjust_lr, set_seed
 from tensorboardX import SummaryWriter
@@ -27,7 +27,7 @@ cudnn.benchmark = True
 
 # set_seed(0)
 # build the model
-model = IRFF()
+model = DIGR()
 if (opt.load is not None):
     model.load_state_dict(torch.load(opt.load))
     print('load model from ', opt.load)
@@ -59,7 +59,7 @@ total_step = len(train_loader)
 
 logging.basicConfig(filename=save_path + 'log.log', format='[%(asctime)s-%(filename)s-%(levelname)s:%(message)s]',
                     level=logging.INFO, filemode='a', datefmt='%Y-%m-%d %I:%M:%S %p')
-logging.info("IRFFNet-Train")
+logging.info("DIGRNet-Train")
 logging.info("Config")
 logging.info(
     'epoch:{};lr:{};batchsize:{};trainsize:{};clip:{};decay_rate:{};load:{};save_path:{};decay_epoch:{}'.format(
@@ -125,12 +125,12 @@ def train(train_loader, model, optimizer, epoch, save_path):
         logging.info('#TRAIN#:Epoch [{:03d}/{:03d}], Loss_AVG: {:.4f}'.format(epoch, opt.epoch, loss_all))
         writer.add_scalar('Loss-epoch', loss_all, global_step=epoch)
         if (epoch) % 5 == 0:
-            torch.save(model.state_dict(), save_path + 'IRFFNet_epoch_{}.pth'.format(epoch))
+            torch.save(model.state_dict(), save_path + 'DIGRNet_epoch_{}.pth'.format(epoch))
     except KeyboardInterrupt:
         print('Keyboard Interrupt: save model and exit.')
         if not os.path.exists(save_path):
             os.makedirs(save_path)
-        torch.save(model.state_dict(), save_path + 'IRFFNet_epoch_{}.pth'.format(epoch + 1))
+        torch.save(model.state_dict(), save_path + 'DIGRNet_epoch_{}.pth'.format(epoch + 1))
         print('save checkpoints successfully!')
         raise
 
@@ -167,7 +167,7 @@ def Jtest(test_loader, model, epoch, save_path):
             if mae < best_mae:
                 best_mae = mae
                 best_epoch = epoch
-                torch.save(model.state_dict(), save_path + 'IRFFNet_epoch_best.pth')
+                torch.save(model.state_dict(), save_path + 'DIGRNet_epoch_best.pth')
                 print('best epoch:{}'.format(epoch))
         logging.info('#TEST#:Epoch:{} MAE:{} bestEpoch:{} bestMAE:{}'.format(epoch, mae, best_epoch, best_mae))
 

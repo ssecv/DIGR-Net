@@ -5,7 +5,7 @@ sys.path.append('./models')
 import numpy as np
 import os, argparse
 import cv2
-from digr_res50 import IRFF
+from digr_res50 import DIGR
 
 from data import test_dataset
 from decode_csv import decode_csv
@@ -28,9 +28,9 @@ elif opt.gpu_id=='1':
     print('USE GPU 1')
 
 #load the model
-model = IRFF()
+model = DIGR()
 #Large epoch size may not generalize well. You can choose a good model to load according to the log file and pth files saved in ('./IRFFNet_cpts/') when training.
-model.load_state_dict(torch.load('./DIGR-Net_cpts/IRFFNet_epoch_best.pth'))
+model.load_state_dict(torch.load('./DIGR-Net_cpts/DIGRNet_epoch_best.pth'))
 model.cuda()
 model.eval()
 

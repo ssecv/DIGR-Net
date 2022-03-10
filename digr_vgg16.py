@@ -344,9 +344,9 @@ class feature_enhanced_operation(nn.Module):
         feat_0r = feat_0 + torch.mul(feat_0, refine0)
         return feat_4r, feat_3r, feat_2r, feat_1r, feat_0r
 
-class IRFF_output(nn.Module):
+class DIGR_output(nn.Module):
     def __init__(self, in_channels, mid_channels=64, out_channels=1):
-        super(IRFF_output, self).__init__()
+        super(DIGR_output, self).__init__()
         self.ch_atten = ChannelAttention(in_channels)
         self.conv_mid = ConvBNReLU(in_channels, mid_channels, ks=3, stride=1, padding=1)
         self.conv_out = nn.Conv2d(mid_channels, out_channels, kernel_size=1, stride=1, padding=0)
@@ -363,9 +363,9 @@ class IRFF_output(nn.Module):
         dep_score = dep_w_sum/cat_w_sum
         return sal_map, dep_score
 
-class IRFF(nn.Module):
+class DIGR(nn.Module):
     def __init__(self):
-        super(IRFF, self).__init__()
+        super(DIGR, self).__init__()
         self.vgg_rgb = VGG_16()
         self.vgg_depth=VGG_16()
 
@@ -389,11 +389,11 @@ class IRFF(nn.Module):
         self.cmib_3r = cross_modality_interaction_block_r(256, 256)
         self.cmib_4r = cross_modality_interaction_block_r(512, 512)
 
-        self.conv_out4 = IRFF_output(in_channels=512 * 2, mid_channels=16, out_channels=1)
-        self.conv_out3 = IRFF_output(in_channels=256 * 2, mid_channels=16, out_channels=1)
-        self.conv_out2 = IRFF_output(in_channels=128 * 2, mid_channels=16, out_channels=1)
-        self.conv_out1 = IRFF_output(in_channels=64 * 2, mid_channels=16, out_channels=1)
-        self.conv_out0 = IRFF_output(in_channels=32 * 2, mid_channels=16, out_channels=1)
+        self.conv_out4 = DIGR_output(in_channels=512 * 2, mid_channels=16, out_channels=1)
+        self.conv_out3 = DIGR_output(in_channels=256 * 2, mid_channels=16, out_channels=1)
+        self.conv_out2 = DIGR_output(in_channels=128 * 2, mid_channels=16, out_channels=1)
+        self.conv_out1 = DIGR_output(in_channels=64 * 2, mid_channels=16, out_channels=1)
+        self.conv_out0 = DIGR_output(in_channels=32 * 2, mid_channels=16, out_channels=1)
 
         # generate a coarse sal map by refined features
         self.GCS_r = generate_coarse_sal()
@@ -472,7 +472,7 @@ class IRFF(nn.Module):
         return sal_map_init, sal_cat_4, sal_cat_3, sal_cat_2, sal_cat_1,cat_sal_0,  sal_map_r
 
 if __name__ == '__main__':
-    net = IRFF()
+    net = DIGR()
     net.cuda()
     net.eval()
     rgb = np.random.randint(0, 255.0, size=[2, 3, 128, 128])

@@ -363,9 +363,9 @@ class feature_enhanced_operation(nn.Module):
         return feat_4r, feat_3r, feat_2r, feat_1r, feat_0r
 
 
-class IRFF_output(nn.Module):
+class DIGR_output(nn.Module):
     def __init__(self, in_channels, mid_channels=64, out_channels=1):
-        super(IRFF_output, self).__init__()
+        super(DIGR_output, self).__init__()
         self.ch_atten = ChannelAttention(in_channels)
         self.conv_mid = ConvBNReLU(in_channels, mid_channels, ks=3, stride=1, padding=1)
         self.conv_out = nn.Conv2d(mid_channels, out_channels, kernel_size=1, stride=1, padding=0)
@@ -382,10 +382,10 @@ class IRFF_output(nn.Module):
         dep_score = dep_w_sum/cat_w_sum
         return sal_map, dep_score
 
-#IRFFNet
-class IRFF(nn.Module):
+#DIGRNet
+class DIGR(nn.Module):
     def __init__(self):
-        super(IRFF, self).__init__()
+        super(DIGR, self).__init__()
 
         #use resnet50 as backbone
         self.resnet_rgb = ResNet50('rgb')
@@ -411,11 +411,11 @@ class IRFF(nn.Module):
         self.cmib_3r = cross_modality_interaction_block_r(512, 512)
         self.cmib_4r = cross_modality_interaction_block_r(1024, 1024)
 
-        self.ID_D4 = IRFF_output(in_channels=2048, mid_channels=32, out_channels=1)
-        self.ID_D3 = IRFF_output(in_channels=1024, mid_channels=32, out_channels=1)
-        self.ID_D2 = IRFF_output(in_channels=512, mid_channels=32, out_channels=1)
-        self.ID_D1 = IRFF_output(in_channels=256, mid_channels=32, out_channels=1)
-        self.ID_D0 = IRFF_output(in_channels=128, mid_channels=32, out_channels=1)
+        self.ID_D4 = DIGR_output(in_channels=2048, mid_channels=32, out_channels=1)
+        self.ID_D3 = DIGR_output(in_channels=1024, mid_channels=32, out_channels=1)
+        self.ID_D2 = DIGR_output(in_channels=512, mid_channels=32, out_channels=1)
+        self.ID_D1 = DIGR_output(in_channels=256, mid_channels=32, out_channels=1)
+        self.ID_D0 = DIGR_output(in_channels=128, mid_channels=32, out_channels=1)
 
         self.upsample32x = nn.Upsample(scale_factor=32, mode='bilinear', align_corners=True)
         self.upsample16x = nn.Upsample(scale_factor=16, mode='bilinear', align_corners=True)
@@ -532,7 +532,7 @@ class IRFF(nn.Module):
         self.resnet_depth.load_state_dict(all_params)
 
 if __name__ == '__main__':
-    net = IRFF()
+    net = DIGR()
     net.cuda()
     net.eval()
     rgb = np.random.randint(0, 255.0, size=[2, 3, 256, 256])
