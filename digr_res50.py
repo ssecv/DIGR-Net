@@ -1,8 +1,5 @@
 # _*_ coding: utf-8 _*_
-# @Time : 2020/12/23 11:17
-# @Author : xiaolong
-# @File : two_stages_RGBD_A_mul.py
-# @desc : 这个版本将所有的模块名称改为了论文里面的模块名称，增加了可读性
+
 
 import torch
 import torch.nn as nn

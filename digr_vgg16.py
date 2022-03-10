@@ -4,7 +4,6 @@ import numpy as np
 from torch.nn import functional as F
 
 from vgg16 import VGG_16
-#对cmib进行了改动，对各层的通道数也进行了不同程度的改动
 
 class ConvBNReLU(nn.Module):
     def __init__(self, in_chan, out_chan, ks=3, stride=1, padding=1, *args, **kwargs):

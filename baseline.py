@@ -1,8 +1,3 @@
-# _*_ coding: utf-8 _*_
-# @Time : 2020/12/23 11:17
-# @Author : xiaolong
-# @File : baseline.py
-# @desc :
 
 import torch
 import torch.nn as nn
