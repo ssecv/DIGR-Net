@@ -45,17 +45,21 @@ respectively.
 Finally, you should set batch from 10 to 6,
 then you can run digr_train.py to train
 
-datasets can be downloaded from : [link](https://pan.baidu.com/s/1KkL1b5QQn6CmzLpZ9SGjoA?pwd=slpy) (slpy)
+datasets can be downloaded from BaiduNetDisk:  [datasets](https://pan.baidu.com/s/1tOZUhLWzvu43OjipYgqvHA) (yqut)
+
+
 
 ## test
 open the fold "DIGR-Net" to find the file 'digr_test.py' （if you want to train with 2985 samples） of you can change the default test_path from "./dataset_dut/RGBD_for_test/" to "./dataset/RGBD_for_test/
 
-## trained model and results
-trained model：
-result maps: 
+##results
+result maps can be downloaded from BaiduNetDisk: [saliency maps](https://pan.baidu.com/s/1F7PO126zpw_M2gqaFoSbQg) (6odd)
 
 ## Evaluation
 find the evaluation method(matlab code) from [evaluation code](http://dpfan.net/d3netbenchmark/)
+
+## Acknowledgement
+We implement this project based on the code of 'Bbs-net: Rgb-d salient object detection with a bifurcated backbone strategy network', proposed by D.-P. Fan, Y. Zhai, A. Borji, J. Yang, and L. Shao in ECCV.
 
 
 
