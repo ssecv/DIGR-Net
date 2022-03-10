@@ -1,7 +1,7 @@
 # DIGR-Net
 This is the code repository for DIGR-Net（Depth-induced Gap-reducing Network for RGB-D Salient Object Detection: An Interaction, Guidance and Refinement Approach）
 
-## dataset prapartion for training and test
+## Dataset Prapartion
 create training dataset fold: open DIGR-Net Fold and create a new fold named by “dataset_dut”（datestet for training dataset(NUJ2000+NPLR+DUT-RGBD,2985 samples）, the structure of “dataset_dut” is:
 -- RGBD_for_test #test dataset
 ---NJU2K
@@ -23,7 +23,7 @@ create training dataset fold: open DIGR-Net Fold and create a new fold named by 
 ...
 
 
-## train
+## Train
 ###trianing with 2985 samples(NJU2K+NLPR+DUT-RGBD)
 With datstet for trainig preapread, open the fold "DIGR-Net" to find the file 'digr_train.py' , just run it!
 
@@ -49,10 +49,10 @@ datasets can be downloaded from BaiduNetDisk:  [datasets](https://pan.baidu.com/
 
 
 
-## test
+## Test
 open the fold "DIGR-Net" to find the file 'digr_test.py' （if you want to train with 2985 samples） of you can change the default test_path from "./dataset_dut/RGBD_for_test/" to "./dataset/RGBD_for_test/
 
-##results
+## Results
 result maps can be downloaded from BaiduNetDisk: [saliency maps](https://pan.baidu.com/s/1F7PO126zpw_M2gqaFoSbQg) (6odd)
 
 ## Evaluation
