@@ -1,5 +1,5 @@
 # DIGR-Net
-This is the code repository for DIGR-Net（Depth-induced Gap-reducing Network for RGB-D Salient Object Detection: An Interaction, Guidance and Refinement Approach）
+This is the code repository for DIGR-Net (Depth-induced Gap-reducing Network for RGB-D Salient Object Detection: An Interaction, Guidance and Refinement Approach)
 
 ## Dataset Prapartion
 create training dataset fold: open DIGR-Net Fold and create a new fold named by “dataset_dut”（datestet for training dataset(NUJ2000+NPLR+DUT-RGBD,2985 samples）, the structure of “dataset_dut” is:
