@@ -58,6 +58,17 @@ result maps can be downloaded from BaiduNetDisk: [saliency maps](https://pan.bai
 ## Evaluation
 find the evaluation method(matlab code) from [evaluation code](http://dpfan.net/d3netbenchmark/)
 
+## Citation
+```BibTeX
+@article{cheng2022ditr,
+  title={Depth-induced Gap-reducing Network for RGB-D Salient Object Detection: An Interaction, Guidance and Refinement Approach},
+  author={Cheng, Xiaolong and Zheng, Xuan and Pei, Jialun and Tang, He and Lyu, Zehua and Chen, Chuanbo},
+  journal={IEEE Transactions on Multimedia},
+  year={2022},
+  publisher={IEEE}
+}
+```
+
 ## Acknowledgement
 We implement this project based on the code of 'Bbs-net: Rgb-d salient object detection with a bifurcated backbone strategy network', proposed by D.-P. Fan, Y. Zhai, A. Borji, J. Yang, and L. Shao in ECCV.
 
