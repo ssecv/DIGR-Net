@@ -1,4 +1,4 @@
-# DIGR-Net
+## DIGR-Net
 This is the code repository for DIGR-Net（Depth-induced Gap-reducing Network for RGB-D Salient Object Detection: An Interaction, Guidance and Refinement Approach）
 
 ## Dataset Prapartion
